@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Neha Chandak Modi — Content Strategist & Marketing Expert</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --ink: #1a1109;
+    --cream: #faf6f0;
+    --warm: #f5ede0;
+    --gold: #c8963a;
+    --gold-light: #e8b96a;
+    --rust: #b5451b;
+    --sage: #5a7a5e;
+    --muted: #7a6a58;
+    --border: #e2d5c3;
+    --card: #ffffff;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 5%;
+    background: rgba(250,246,240,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; font-weight: 700; color: var(--ink);
+    text-decoration: none; letter-spacing: 0.02em;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--muted); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--ink); color: var(--cream) !important;
+    padding: 0.55rem 1.4rem; border-radius: 2px;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--gold) !important; color: var(--ink) !important; }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+    overflow: hidden;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 6% 5% 6% 7%;
+    position: relative;
+  }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--gold); font-weight: 600; margin-bottom: 1.5rem;
+  }
+  .hero-tag::before {
+    content: ''; display: block;
+    width: 24px; height: 1px; background: var(--gold);
+  }
+  .hero-h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 900; line-height: 1.1;
+    color: var(--ink); margin-bottom: 1.5rem;
+  }
+  .hero-h1 em { color: var(--gold); font-style: italic; }
+  .hero-sub {
+    font-size: 1.05rem; line-height: 1.75; color: var(--muted);
+    max-width: 480px; margin-bottom: 2.5rem;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gold); color: var(--ink);
+    padding: 0.85rem 2rem; border-radius: 2px;
+    font-weight: 600; font-size: 0.9rem; letter-spacing: 0.04em;
+    text-decoration: none; transition: all 0.2s;
+    border: 2px solid var(--gold);
+  }
+  .btn-primary:hover { background: var(--rust); border-color: var(--rust); color: #fff; }
+  .btn-outline {
+    background: transparent; color: var(--ink);
+    padding: 0.85rem 2rem; border-radius: 2px;
+    font-weight: 600; font-size: 0.9rem; letter-spacing: 0.04em;
+    text-decoration: none; transition: all 0.2s;
+    border: 2px solid var(--ink);
+  }
+  .btn-outline:hover { background: var(--ink); color: var(--cream); }
+  .hero-stats {
+    display: flex; gap: 2.5rem; margin-top: 3rem;
+    padding-top: 2rem; border-top: 1px solid var(--border);
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 700; color: var(--ink);
+    line-height: 1;
+  }
+  .stat-label { font-size: 0.78rem; color: var(--muted); margin-top: 0.3rem; letter-spacing: 0.05em; }
+
+  .hero-right {
+    background: var(--ink);
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 3rem;
+  }
+  .hero-right::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 30%, rgba(200,150,58,0.25) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(181,69,27,0.15) 0%, transparent 50%);
+  }
+  .hero-quote-card {
+    position: relative; z-index: 2;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(200,150,58,0.3);
+    padding: 2rem; border-radius: 4px;
+    margin-bottom: 1.5rem;
+  }
+  .hero-quote-mark {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem; color: var(--gold); line-height: 0.5;
+    display: block; margin-bottom: 1rem;
+  }
+  .hero-quote-text {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem; color: var(--cream);
+    line-height: 1.7; font-style: italic;
+  }
+  .hero-services-list {
+    position: relative; z-index: 2;
+    display: flex; flex-direction: column; gap: 0.6rem;
+  }
+  .hs-item {
+    display: flex; align-items: center; gap: 0.8rem;
+    color: rgba(250,246,240,0.65); font-size: 0.85rem;
+  }
+  .hs-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+
+  /* ── SECTION BASE ── */
+  section { padding: 6rem 7%; }
+  .section-tag {
+    font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--gold); font-weight: 600; margin-bottom: 0.8rem;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .section-tag::before { content: ''; width: 20px; height: 1px; background: var(--gold); }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 700;
+    line-height: 1.2; color: var(--ink); margin-bottom: 1rem;
+  }
+  .section-title em { color: var(--gold); font-style: italic; }
+  .section-sub { font-size: 1rem; color: var(--muted); line-height: 1.75; max-width: 560px; }
+
+  /* ── ABOUT ── */
+  #about { background: var(--warm); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+  .about-img-wrap {
+    position: relative;
+  }
+  .about-img-box {
+    width: 100%; aspect-ratio: 3/4;
+    background: var(--ink);
+    border-radius: 4px; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .about-img-box::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 30%, rgba(200,150,58,0.3) 0%, transparent 70%);
+  }
+  .about-initials {
+    font-family: 'Playfair Display', serif;
+    font-size: 6rem; font-weight: 900; color: rgba(200,150,58,0.4);
+    position: relative; z-index: 1;
+  }
+  .about-accent-box {
+    position: absolute; bottom: -1.5rem; right: -1.5rem;
+    background: var(--gold); padding: 1.2rem 1.5rem; border-radius: 4px;
+  }
+  .about-accent-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem; font-weight: 700; color: var(--ink); line-height: 1;
+  }
+  .about-accent-label { font-size: 0.72rem; color: var(--ink); opacity: 0.7; margin-top: 0.2rem; }
+  .about-content { padding-right: 1rem; }
+  .about-bio { font-size: 1rem; line-height: 1.85; color: #4a3c2e; margin-bottom: 2rem; }
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-top: 1.5rem; }
+  .skill-tag {
+    background: var(--cream); border: 1px solid var(--border);
+    padding: 0.5rem 0.9rem; border-radius: 2px;
+    font-size: 0.8rem; font-weight: 500; color: var(--ink);
+    text-align: center;
+  }
+
+  /* ── SERVICES ── */
+  #services { background: var(--cream); }
+  .services-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-bottom: 4rem; align-items: end; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .service-card {
+    background: var(--card); border: 1px solid var(--border);
+    padding: 2rem; border-radius: 4px;
+    transition: all 0.3s; cursor: default;
+    position: relative; overflow: hidden;
+  }
+  .service-card::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+    background: var(--gold); transform: scaleX(0);
+    transform-origin: left; transition: transform 0.3s;
+  }
+  .service-card:hover { box-shadow: 0 12px 40px rgba(26,17,9,0.1); transform: translateY(-4px); }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+  .service-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.75rem; color: var(--gold); font-weight: 700;
+    letter-spacing: 0.1em; margin-bottom: 0.5rem;
+  }
+  .service-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem; font-weight: 700; color: var(--ink);
+    margin-bottom: 0.8rem; line-height: 1.3;
+  }
+  .service-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.2rem; }
+  .service-price {
+    font-size: 0.8rem; font-weight: 600; color: var(--gold);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── PORTFOLIO ── */
+  #portfolio { background: var(--ink); }
+  #portfolio .section-tag { color: var(--gold-light); }
+  #portfolio .section-tag::before { background: var(--gold-light); }
+  #portfolio .section-title { color: var(--cream); }
+  #portfolio .section-sub { color: rgba(250,246,240,0.6); }
+  .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .portfolio-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(200,150,58,0.2);
+    border-radius: 4px; padding: 2rem;
+    transition: all 0.3s;
+  }
+  .portfolio-card:hover {
+    background: rgba(200,150,58,0.1);
+    border-color: rgba(200,150,58,0.5);
+    transform: translateY(-3px);
+  }
+  .portfolio-industry {
+    font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gold-light); font-weight: 600; margin-bottom: 0.8rem;
+  }
+  .portfolio-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; color: var(--cream); font-weight: 700;
+    margin-bottom: 0.8rem; line-height: 1.35;
+  }
+  .portfolio-desc { font-size: 0.85rem; color: rgba(250,246,240,0.55); line-height: 1.7; margin-bottom: 1.2rem; }
+  .portfolio-result {
+    display: flex; align-items: center; gap: 0.6rem;
+    font-size: 0.82rem; font-weight: 600; color: var(--gold-light);
+  }
+  .portfolio-result::before { content: '↑'; font-size: 1rem; }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { background: var(--warm); }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .testi-card {
+    background: var(--card); border: 1px solid var(--border);
+    padding: 2rem; border-radius: 4px;
+  }
+  .testi-stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 1rem; letter-spacing: 0.1em; }
+  .testi-text {
+    font-family: 'DM Serif Display', serif;
+    font-size: 0.98rem; color: var(--ink); line-height: 1.75;
+    font-style: italic; margin-bottom: 1.5rem;
+  }
+  .testi-author { display: flex; align-items: center; gap: 0.8rem; }
+  .testi-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--gold); display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 0.85rem; color: var(--ink); flex-shrink: 0;
+  }
+  .testi-name { font-weight: 600; font-size: 0.88rem; color: var(--ink); }
+  .testi-role { font-size: 0.78rem; color: var(--muted); }
+
+  /* ── BLOG ── */
+  #blog { background: var(--cream); }
+  .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .blog-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 4px; overflow: hidden;
+    transition: all 0.3s;
+  }
+  .blog-card:hover { box-shadow: 0 12px 40px rgba(26,17,9,0.1); transform: translateY(-3px); }
+  .blog-img {
+    height: 160px;
+    background: var(--ink);
+    position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .blog-img-1 { background: linear-gradient(135deg, #1a1109 0%, #3d2b1f 100%); }
+  .blog-img-2 { background: linear-gradient(135deg, #2d3a2e 0%, #1a1109 100%); }
+  .blog-img-3 { background: linear-gradient(135deg, #3a1a09 0%, #1a1109 100%); }
+  .blog-img-icon { font-size: 2.5rem; opacity: 0.5; }
+  .blog-tag {
+    position: absolute; top: 1rem; left: 1rem;
+    background: var(--gold); color: var(--ink);
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; padding: 0.3rem 0.7rem; border-radius: 2px;
+  }
+  .blog-body { padding: 1.5rem; }
+  .blog-meta { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.6rem; letter-spacing: 0.04em; }
+  .blog-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; font-weight: 700; color: var(--ink);
+    line-height: 1.4; margin-bottom: 0.7rem;
+  }
+  .blog-excerpt { font-size: 0.83rem; color: var(--muted); line-height: 1.65; }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--ink); }
+  #contact .section-tag { color: var(--gold-light); }
+  #contact .section-tag::before { background: var(--gold-light); }
+  #contact .section-title { color: var(--cream); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-top: 3rem; align-items: start; }
+  .contact-info-text { font-size: 1rem; color: rgba(250,246,240,0.65); line-height: 1.8; margin-bottom: 2.5rem; }
+  .contact-detail { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; }
+  .contact-detail-icon {
+    width: 42px; height: 42px;
+    background: rgba(200,150,58,0.15); border: 1px solid rgba(200,150,58,0.3);
+    border-radius: 4px; display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; flex-shrink: 0;
+  }
+  .contact-detail-text { font-size: 0.88rem; color: rgba(250,246,240,0.75); }
+  .contact-detail-label { font-size: 0.72rem; color: var(--gold-light); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.2rem; }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-label { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(250,246,240,0.5); }
+  .form-input, .form-textarea, .form-select {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(200,150,58,0.2);
+    border-radius: 2px; padding: 0.8rem 1rem;
+    color: var(--cream); font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem; outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-input:focus, .form-textarea:focus, .form-select:focus { border-color: var(--gold); }
+  .form-textarea { resize: vertical; min-height: 120px; }
+  .form-select option { background: #2a1f14; }
+  .btn-submit {
+    background: var(--gold); color: var(--ink);
+    border: none; padding: 1rem 2rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem; font-weight: 700; letter-spacing: 0.04em;
+    border-radius: 2px; cursor: pointer;
+    transition: all 0.2s; text-transform: uppercase;
+  }
+  .btn-submit:hover { background: var(--gold-light); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0e0b07; padding: 2rem 7%;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid rgba(200,150,58,0.15);
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; color: var(--cream); font-weight: 700;
+  }
+  .footer-logo span { color: var(--gold); }
+  .footer-copy { font-size: 0.78rem; color: rgba(250,246,240,0.35); }
+  .footer-social { display: flex; gap: 1rem; }
+  .social-link {
+    width: 36px; height: 36px;
+    border: 1px solid rgba(200,150,58,0.25); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; color: rgba(250,246,240,0.5);
+    text-decoration: none; transition: all 0.2s;
+  }
+  .social-link:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-tag { animation: fadeUp 0.6s ease both; }
+  .hero-h1 { animation: fadeUp 0.6s 0.1s ease both; }
+  .hero-sub { animation: fadeUp 0.6s 0.2s ease both; }
+  .hero-actions { animation: fadeUp 0.6s 0.3s ease both; }
+  .hero-stats { animation: fadeUp 0.6s 0.4s ease both; }
+  .hero-right { animation: fadeUp 0.8s 0.2s ease both; }
+
+  /* ── RESPONSIVE ── */
+  @media(max-width: 900px) {
+    #hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .about-grid, .services-intro, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .services-grid, .portfolio-grid, .testimonials-grid, .blog-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    section { padding: 4rem 5%; }
+  }
+  @media(min-width: 901px) and (max-width: 1100px) {
+    .services-grid, .portfolio-grid, .testimonials-grid, .blog-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">Neha<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Work</a></li>
+    <li><a href="#testimonials">Clients</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <span class="hero-tag">Content Strategist & Marketing Expert</span>
+    <h1 class="hero-h1">Strategic Content That Turns <em>Readers</em> into Clients</h1>
+    <p class="hero-sub">I help small businesses and entrepreneurs build a powerful online presence through content strategy, AI-powered copywriting, and social media marketing that actually converts.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Book a Free Strategy Call</a>
+      <a href="#portfolio" class="btn-outline">View My Work</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">50+</div>
+        <div class="stat-label">Clients Served</div>
+      </div>
+      <div>
+        <div class="stat-num">5 Yrs</div>
+        <div class="stat-label">Experience</div>
+      </div>
+      <div>
+        <div class="stat-num">3x</div>
+        <div class="stat-label">Avg. Engagement Growth</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-quote-card">
+      <span class="hero-quote-mark">"</span>
+      <p class="hero-quote-text">I don't just create content — I build systems that turn your audience into a steady stream of qualified leads.</p>
+    </div>
+    <div class="hero-services-list">
+      <div class="hs-item"><span class="hs-dot"></span> Content Strategy & Planning</div>
+      <div class="hs-item"><span class="hs-dot"></span> Social Media Management</div>
+      <div class="hs-item"><span class="hs-dot"></span> SEO Copywriting & Blog Writing</div>
+      <div class="hs-item"><span class="hs-dot"></span> Brand Messaging & Positioning</div>
+      <div class="hs-item"><span class="hs-dot"></span> Email Marketing Campaigns</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img-wrap">
+      <div class="about-img-box">
+        <div class="about-initials">NCM</div>
+      </div>
+      <div class="about-accent-box">
+        <div class="about-accent-num">50+</div>
+        <div class="about-accent-label">Happy Clients</div>
+      </div>
+    </div>
+    <div class="about-content">
+      <div class="section-tag">About Me</div>
+      <h2 class="section-title">Hi, I'm Neha Chandak <em>Modi</em></h2>
+      <p class="about-bio">I'm a freelance content strategist and marketing expert with 5+ years of experience helping small businesses, D2C brands, and service-based entrepreneurs grow their revenue through smart, strategic content.</p>
+      <p class="about-bio">What sets me apart? I combine deep marketing expertise with the power of AI tools to deliver faster results at better value. Every piece of content I create is designed with one goal: to move your audience closer to becoming your customer.</p>
+      <p class="about-bio">I've worked across industries including EdTech, Health & Wellness, D2C, and Professional Services — and I bring the same personalized attention to every project.</p>
+      <div class="skills-grid">
+        <span class="skill-tag">Content Strategy</span>
+        <span class="skill-tag">SEO Writing</span>
+        <span class="skill-tag">Social Media</span>
+        <span class="skill-tag">Email Marketing</span>
+        <span class="skill-tag">Brand Messaging</span>
+        <span class="skill-tag">AI-Powered Tools</span>
+        <span class="skill-tag">Canva & Design</span>
+        <span class="skill-tag">Lead Generation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-intro">
+    <div>
+      <div class="section-tag">What I Offer</div>
+      <h2 class="section-title">Services Designed to <em>Grow</em> Your Business</h2>
+    </div>
+    <p class="section-sub">From a single blog post to a full content strategy, I offer tailored packages for every stage of your marketing journey. No cookie-cutter solutions — only what your business actually needs.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🗺️</div>
+      <div class="service-num">01</div>
+      <div class="service-name">Content Strategy & Planning</div>
+      <p class="service-desc">Monthly editorial calendars, audience research, and platform-specific strategies aligned to your business goals. Stop guessing what to post.</p>
+      <div class="service-price">Starting ₹8,000/month</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📱</div>
+      <div class="service-num">02</div>
+      <div class="service-name">Social Media Management</div>
+      <p class="service-desc">20+ platform-ready posts per month, scheduling, community engagement, and monthly performance reports for Instagram, LinkedIn & Facebook.</p>
+      <div class="service-price">Starting ₹12,000/month</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">✍️</div>
+      <div class="service-num">03</div>
+      <div class="service-name">SEO Copywriting & Blogs</div>
+      <p class="service-desc">Keyword-rich blogs, website copy, and landing pages that rank on Google and convert readers into buyers. Written for both humans and algorithms.</p>
+      <div class="service-price">Starting ₹3,000/piece</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🎯</div>
+      <div class="service-num">04</div>
+      <div class="service-name">Brand Messaging & Positioning</div>
+      <p class="service-desc">Brand voice guidelines, taglines, messaging frameworks, and positioning statements that make you unmistakably distinct in your market.</p>
+      <div class="service-price">Starting ₹15,000/project</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📧</div>
+      <div class="service-num">05</div>
+      <div class="service-name">Email Marketing Campaigns</div>
+      <p class="service-desc">Welcome sequences, product launch emails, and nurture campaigns that keep your audience warm and your revenue consistent.</p>
+      <div class="service-price">Starting ₹5,000/sequence</div>
+    </div>
+    <div class="service-card" style="background:var(--ink); border-color: var(--gold);">
+      <div class="service-icon">⭐</div>
+      <div class="service-num" style="color:var(--gold-light)">06</div>
+      <div class="service-name" style="color:var(--cream)">Full-Stack Content Retainer</div>
+      <p class="service-desc" style="color:rgba(250,246,240,0.6)">Strategy + social + blogs + email — everything handled. The ultimate hands-off content solution for busy founders.</p>
+      <div class="service-price" style="color:var(--gold-light)">Custom Pricing — Let's Talk</div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="section-tag">My Work</div>
+  <h2 class="section-title">Real Projects. <em>Real Results.</em></h2>
+  <p class="section-sub">Here's a sample of work I've done for clients across industries. Numbers don't lie.</p>
+  <div class="portfolio-grid">
+    <div class="portfolio-card">
+      <div class="portfolio-industry">D2C · Social Media</div>
+      <div class="portfolio-title">3x Instagram Growth for a Skincare Brand</div>
+      <p class="portfolio-desc">Developed a 90-day content strategy and managed full social execution for a D2C skincare brand entering a competitive market.</p>
+      <div class="portfolio-result">Followers grew from 1,200 to 3,800 in 90 days</div>
+    </div>
+    <div class="portfolio-card">
+      <div class="portfolio-industry">EdTech · Content Strategy</div>
+      <div class="portfolio-title">From Zero to 5,000 Monthly Blog Readers</div>
+      <p class="portfolio-desc">Built a full SEO content engine for an EdTech startup — keyword research, content calendar, and 12 pillar articles published over 3 months.</p>
+      <div class="portfolio-result">5,000 organic monthly readers in 4 months</div>
+    </div>
+    <div class="portfolio-card">
+      <div class="portfolio-industry">Consulting · Email Marketing</div>
+      <div class="portfolio-title">45% Open Rate Email Sequence for a Coach</div>
+      <p class="portfolio-desc">Wrote a 7-email welcome sequence for a business coach's lead magnet funnel, dramatically improving engagement over industry benchmarks.</p>
+      <div class="portfolio-result">45% open rate vs. 22% industry average</div>
+    </div>
+    <div class="portfolio-card">
+      <div class="portfolio-industry">Health & Wellness · Copywriting</div>
+      <div class="portfolio-title">Landing Page That Converts at 12%</div>
+      <p class="portfolio-desc">Rewrote the homepage and services page for a wellness consultant whose old site was getting traffic but no inquiries.</p>
+      <div class="portfolio-result">Conversion rate improved from 1.2% to 12%</div>
+    </div>
+    <div class="portfolio-card">
+      <div class="portfolio-industry">B2B · LinkedIn Strategy</div>
+      <div class="portfolio-title">LinkedIn Content That Generated 8 Leads/Month</div>
+      <p class="portfolio-desc">Created and managed a LinkedIn thought leadership content plan for a B2B SaaS founder, turning their profile into an inbound lead machine.</p>
+      <div class="portfolio-result">8 qualified inbound leads per month</div>
+    </div>
+    <div class="portfolio-card">
+      <div class="portfolio-industry">Retail · Brand Messaging</div>
+      <div class="portfolio-title">Brand Voice Overhaul for a Boutique Brand</div>
+      <p class="portfolio-desc">Developed complete brand messaging — tone of voice, tagline, elevator pitch, and messaging hierarchy — for a premium home décor retailer.</p>
+      <div class="portfolio-result">40% increase in website engagement post-launch</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-tag">Client Love</div>
+  <h2 class="section-title">What My Clients <em>Say</em></h2>
+  <p class="section-sub">I measure success by the outcomes my clients experience. Here's what some of them have shared.</p>
+  <div class="testimonials-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Neha completely transformed our social media presence. We went from posting randomly to having a real strategy. Our engagement doubled in the first month and we've been getting inquiries from Instagram for the first time ever."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">PK</div>
+        <div>
+          <div class="testi-name">Priya Kapoor</div>
+          <div class="testi-role">Founder, Bloom Skincare</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Working with Neha was one of the best investments I made in my business. Her email sequences feel personal and human — not like AI-generated spam. My course launch exceeded targets by 30%."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">RS</div>
+        <div>
+          <div class="testi-name">Rahul Sharma</div>
+          <div class="testi-role">Business Coach, Pune</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"I hired Neha to rewrite my website copy and the difference was night and day. She understood my brand within days and delivered copy that sounds exactly like me — but better. Inquiries went up immediately."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">AM</div>
+        <div>
+          <div class="testi-name">Aisha Menon</div>
+          <div class="testi-role">Founder, Casa Décor Studio</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="section-tag">Insights</div>
+  <h2 class="section-title">Content, Strategy & <em>Ideas</em></h2>
+  <p class="section-sub">Free marketing insights to help you grow. If you find value here, imagine what we could do together.</p>
+  <div class="blog-grid">
+    <div class="blog-card">
+      <div class="blog-img blog-img-1">
+        <span class="blog-img-icon">📈</span>
+        <span class="blog-tag">Strategy</span>
+      </div>
+      <div class="blog-body">
+        <div class="blog-meta">April 10, 2026 · 6 min read</div>
+        <div class="blog-title">5 Signs Your Business Needs a Content Strategy (And What to Do About It)</div>
+        <p class="blog-excerpt">If your social media is inconsistent and your website isn't generating leads, it's not a creativity problem — it's a strategy problem. Here's how to fix it.</p>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-img blog-img-2">
+        <span class="blog-img-icon">🤖</span>
+        <span class="blog-tag">AI Tools</span>
+      </div>
+      <div class="blog-body">
+        <div class="blog-meta">April 3, 2026 · 8 min read</div>
+        <div class="blog-title">AI Tools Every Freelance Marketer Should Use in 2026</div>
+        <p class="blog-excerpt">I use AI every day in my marketing work — not to replace strategy, but to amplify it. Here are the tools that have changed how I work (and how fast).</p>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-img blog-img-3">
+        <span class="blog-img-icon">💼</span>
+        <span class="blog-tag">LinkedIn</span>
+      </div>
+      <div class="blog-body">
+        <div class="blog-meta">March 28, 2026 · 5 min read</div>
+        <div class="blog-title">How to Write a LinkedIn Post That Gets Clients to Come to You</div>
+        <p class="blog-excerpt">Most LinkedIn posts get ignored. Here's the exact framework I use to write posts that generate real conversations and inbound inquiries every week.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-tag">Get In Touch</div>
+  <h2 class="section-title">Let's Build Something <em>Great</em> Together</h2>
+  <div class="contact-grid">
+    <div>
+      <p class="contact-info-text">Have a project in mind? I'd love to hear about it. Book a free 30-minute discovery call or send me a message and I'll get back to you within 24 hours.</p>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📧</div>
+        <div>
+          <div class="contact-detail-label">Email</div>
+          <div class="contact-detail-text">neha@nehachandakmodi.com</div>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📍</div>
+        <div>
+          <div class="contact-detail-label">Location</div>
+          <div class="contact-detail-text">Indore, Madhya Pradesh, India</div>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">⏰</div>
+        <div>
+          <div class="contact-detail-label">Response Time</div>
+          <div class="contact-detail-text">Within 24 hours</div>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">🌏</div>
+        <div>
+          <div class="contact-detail-label">Works With</div>
+          <div class="contact-detail-text">India, SE Asia, Middle East & Global Remote</div>
+        </div>
+      </div>
+    </div>
+    <form class="contact-form" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Your Name</label>
+          <input class="form-input" type="text" placeholder="Rahul Sharma" required/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input class="form-input" type="email" placeholder="rahul@company.com" required/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">I'm interested in...</label>
+        <select class="form-select">
+          <option>Content Strategy & Planning</option>
+          <option>Social Media Management</option>
+          <option>SEO Copywriting & Blogs</option>
+          <option>Brand Messaging</option>
+          <option>Email Marketing</option>
+          <option>Full-Stack Retainer</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Tell me about your project</label>
+        <textarea class="form-textarea" placeholder="Describe your business, current challenges, and what you're looking to achieve..."></textarea>
+      </div>
+      <button type="submit" class="btn-submit">Send Message →</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Neha<span>.</span></div>
+  <div class="footer-copy">© 2026 Neha Chandak Modi. All rights reserved.</div>
+  <div class="footer-social">
+    <a href="#" class="social-link">in</a>
+    <a href="#" class="social-link">ig</a>
+    <a href="#" class="social-link">tw</a>
+  </div>
+</footer>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.btn-submit');
+  btn.textContent = '✓ Message Sent! I\'ll be in touch soon.';
+  btn.style.background = '#5a7a5e';
+  btn.style.color = '#fff';
+  btn.disabled = true;
+}
+
+// Scroll-reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(el => {
+    if (el.isIntersecting) {
+      el.target.style.opacity = '1';
+      el.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.service-card, .portfolio-card, .testi-card, .blog-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s, border-color 0.3s';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
